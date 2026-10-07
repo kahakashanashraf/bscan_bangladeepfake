@@ -1,0 +1,40 @@
+name: Mirror BSCAN source repository
+
+on:
+  push:
+    paths:
+      - ".github/workflows/mirror-bscan-source.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out target repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Mirror source main branch into target
+        shell: bash
+        run: |
+          set -euo pipefail
+          src_dir="$(mktemp -d)/source"
+          git clone --depth 1 --branch main \
+            "https://github.com/hamidhosen42/BSCAN-Dual-Branch-Spectro-Cepstral-Residual-Attention-Network-for-Bengali-Deepfake-Audio-Detection.git" \
+            "$src_dir"
+
+          rsync -a --delete --exclude=".git/" "$src_dir/" ./
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Target already matches source."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Mirror BSCAN source repository"
+          git push origin HEAD:main
