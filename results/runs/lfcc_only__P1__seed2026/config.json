@@ -1,0 +1,52 @@
+{
+  "name": "lfcc_only",
+  "out_dir": "/content/bscan/results/runs",
+  "data": {
+    "protocol": "P1",
+    "metadata_csv": "/content/bscan/metadata/unified_metadata.csv",
+    "audio_root": "/content/bscan/data",
+    "cache_dir": "/content/bscan/data/cache",
+    "scheme": "controlled",
+    "window_sec": 6.0,
+    "overlap": 0.1,
+    "eval_splits": [
+      "validation",
+      "internal_test",
+      "external_BF-MOZ",
+      "external_MEN",
+      "external_BF-SUST",
+      "external_BF-NEWS"
+    ],
+    "max_files_per_split": null,
+    "num_workers": 2
+  },
+  "model": {
+    "name": "bscan",
+    "branches": [
+      "lfcc"
+    ],
+    "hidden_dim": 64,
+    "use_se": true,
+    "use_temporal_attn": true,
+    "dropout": 0.3
+  },
+  "train": {
+    "seed": 2026,
+    "batch_size": 16,
+    "lr": 0.0001,
+    "weight_decay": 0.0001,
+    "epochs": 15,
+    "patience": 5,
+    "plateau_factor": 0.5,
+    "plateau_patience": 2,
+    "grad_clip": 1.0,
+    "amp": true,
+    "deterministic": true,
+    "device": "auto"
+  },
+  "eval": {
+    "threshold_rule": "eer",
+    "aggregate": "mean_logit",
+    "n_boot": 2000
+  }
+}

@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below, together with the companion dataset (doi:10.34740/KAGGLE/DSV/20278870)."
+title: "BSCAN: code and results of a leakage-aware evaluation of Bengali audio deepfake detection"
+version: 1.0.0
+type: software
+license: MIT
+abstract: "Code, run registry and stored results for BSCAN, a dual-branch spectro-cepstral residual attention network for Bengali audio deepfake detection, and its leakage-aware evaluation on BanglaFake and the Mendeley Bangla Audio Dataset: dataset audit of recording-level shortcuts, sentence-grouped splits under two protocols, controlled preprocessing, representation study and trained ablation, same-protocol baselines and an XLS-R reference, robustness and counterfactual probes, and cluster-bootstrap statistics. The GPU runs are produced by the Colab notebook in code/ (code version f6b8ae4772ce). No audio is included; the companion dataset with metadata, splits, audits and per-recording scores is at https://doi.org/10.34740/KAGGLE/DSV/20278870."
+authors:
+  - given-names: Kahakashan
+    family-names: Ashraf
+    affiliation: "Department of Computer Science and Engineering, Chittagong University of Engineering and Technology, Chattogram, Bangladesh"
+  - given-names: Md. Hamid
+    family-names: Hosen
+    affiliation: "Department of Computer Science and Engineering, East Delta University, Chattogram, Bangladesh"
+  - given-names: Mahfuzulhoq
+    family-names: Chowdhury
+    affiliation: "Department of Computer Science and Engineering, Chittagong University of Engineering and Technology, Chattogram, Bangladesh"
+keywords:
+  - Bengali
+  - audio deepfake detection
+  - anti-spoofing
+  - shortcut learning
+  - dataset audit
+  - cross-dataset evaluation

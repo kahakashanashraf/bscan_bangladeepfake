@@ -1,0 +1,5 @@
+base: base.yaml
+name: lcnn_lfcc
+model:
+  name: lcnn
+  branches: [lfcc]

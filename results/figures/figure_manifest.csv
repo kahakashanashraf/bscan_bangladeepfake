@@ -1,0 +1,11 @@
+figure,status,caption,sources
+Fig1,real,Architecture and preprocessing,src/bscan/models/bscan.py;src/bscan/audio.py;src/bscan/features.py;results/figures/fig1_example_window.npz
+Fig2,real,Recording-level cues by corpus and class,metadata/recording_descriptors.csv;results/phase3/window_descriptors.csv.gz
+Fig3,real,Label information available from coarse window statistics,results/phase3/model_visible_shortcut_diagnostics.csv
+Fig4,real,ROC curves under P1,results/runs/bscan_controlled__P1__seed42/predictions_internal_test.csv;results/runs/lcnn_lfcc__P1__seed42/predictions_internal_test.csv;results/runs/lfcc_gmm_controlled__P1__seed42/predictions_internal_test.csv;results/runs/stats_hgb_controlled__P1__seed42/predictions_internal_test.csv;results/runs/bscan_controlled__P1__seed42/predictions_external_BF-MOZ.csv;results/runs/lcnn_lfcc__P1__seed42/predictions_external_BF-MOZ.csv;results/runs/lfcc_gmm_controlled__P1__seed42/predictions_external_BF-MOZ.csv;results/runs/stats_hgb_controlled__P1__seed42/predictions_external_BF-MOZ.csv;results/runs/bscan_controlled__P1__seed42/predictions_external_MEN.csv;results/runs/lcnn_lfcc__P1__seed42/predictions_external_MEN.csv;results/runs/lfcc_gmm_controlled__P1__seed42/predictions_external_MEN.csv;results/runs/stats_hgb_controlled__P1__seed42/predictions_external_MEN.csv
+Fig7,real,Cross-corpus AUC matrix,results/stats/cross_corpus_auc.csv
+Fig9,real,Representation study and ablation,results/stats/multiseed_summary.csv
+Fig8,real,Robustness and counterfactual probes,robustness_summary.csv;probes_summary.csv
+Fig6,real,Systematic error analysis of BSCAN on MEN,results/analysis/error_groups.csv
+S1_Fig,real,"Training and validation loss of BSCAN (P1, seed 42)",results/runs/bscan_controlled__P1__seed42/train_log.csv
+Fig5,real,Confusion matrices of BSCAN across the evaluation tiers,results/runs/bscan_controlled__P1__seed42/predictions_internal_test.csv;results/runs/bscan_controlled__P1__seed42/predictions_external_BF-MOZ.csv;results/runs/bscan_controlled__P1__seed42/predictions_external_MEN.csv

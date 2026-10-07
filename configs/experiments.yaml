@@ -1,0 +1,98 @@
+# Experiment registry: the single source of truth for every run reported in the paper.
+# Notebooks train/evaluate exactly these runs; table/figure/report generators read exactly these
+# runs; .scripts/final_qc.py fails if any required run is missing or is a placeholder.
+#
+# run directory name = {config}__{protocol}__seed{seed}  (results/runs/...)
+# kind: neural (trained on Colab) | ssl (frozen self-supervised encoder + linear probe, Colab) | local (CPU script)
+#
+# Decisions recorded on 2026-10-03, before any neural or SSL result existed:
+#   * the XLS-R probe is a pre-declared secondary comparator and is reported whatever its result
+#   * every single-seed P1 variant (MFCC-only, Mel+MFCC and the three ablations) also gets seeds 123 and 2026
+#   * BSCAN is compared with every registered comparator (list below); Holm correction within each
+#     protocol x test set family
+
+seeds_main: [42]
+seeds_repeat: [123, 2026]
+
+models:
+  bscan_controlled: {label: "BSCAN (Mel+LFCC)",        family: proposed,       features: "Mel+LFCC", kind: neural}
+  bscan_orig6s:     {label: "BSCAN, original preprocessing", family: preprocessing, features: "Mel+LFCC", kind: neural}
+  mel_only:         {label: "Mel-only branch",          family: representation, features: "Mel",      kind: neural}
+  lfcc_only:        {label: "LFCC-only branch",         family: representation, features: "LFCC",     kind: neural}
+  mfcc_only:        {label: "MFCC-only branch",         family: representation, features: "MFCC",     kind: neural}
+  mel_mfcc:         {label: "Mel+MFCC (dual)",          family: representation, features: "Mel+MFCC", kind: neural}
+  dual_no_se:       {label: "Dual, no SE",              family: ablation,       features: "Mel+LFCC", kind: neural}
+  dual_no_tattn:    {label: "Dual, no temporal attention", family: ablation,    features: "Mel+LFCC", kind: neural}
+  dual_plain:       {label: "Dual, no SE and no attention", family: ablation,   features: "Mel+LFCC", kind: neural}
+  lcnn_lfcc:        {label: "LCNN-style (LFCC)",        family: baseline,       features: "LFCC",     kind: neural}
+  lfcc_gmm_controlled:   {label: "LFCC-GMM",           family: baseline,       features: "LFCC",     kind: local}
+  stats_hgb_controlled:  {label: "Recording statistics (content-agnostic)", family: shortcut_baseline, features: "11 descriptors", kind: local}
+  stats_hgb_orig6s:      {label: "Recording statistics, original preprocessing", family: shortcut_baseline, features: "11 descriptors", kind: local}
+  ssl_xlsr_probe:   {label: "XLS-R (frozen) + linear probe", family: learned_representation, features: "SSL", kind: ssl}
+
+# stage -> list of (model, protocol, seeds)
+runs:
+  B:   # single-seed pipeline verification
+    - {model: bscan_controlled, protocol: P1, seeds: [42]}
+    - {model: bscan_orig6s,     protocol: P1, seeds: [42]}
+  C:   # representation study, trained ablation, same-protocol baselines, reverse direction
+    - {model: mel_only,       protocol: P1, seeds: [42]}
+    - {model: lfcc_only,      protocol: P1, seeds: [42]}
+    - {model: mfcc_only,      protocol: P1, seeds: [42]}
+    - {model: mel_mfcc,       protocol: P1, seeds: [42]}
+    - {model: dual_no_se,     protocol: P1, seeds: [42]}
+    - {model: dual_no_tattn,  protocol: P1, seeds: [42]}
+    - {model: dual_plain,     protocol: P1, seeds: [42]}
+    - {model: lcnn_lfcc,      protocol: P1, seeds: [42]}
+    - {model: bscan_controlled, protocol: P2, seeds: [42]}
+    - {model: mel_only,       protocol: P2, seeds: [42]}
+    - {model: lfcc_only,      protocol: P2, seeds: [42]}
+    - {model: lcnn_lfcc,      protocol: P2, seeds: [42]}
+    - {model: ssl_xlsr_probe, protocol: P1, seeds: [42]}   # learned-representation reference (notebook SSL cell)
+  D:   # seed repetitions, fixed BEFORE seeing any repeated-seed result
+    - {model: bscan_controlled, protocol: P1, seeds: [123, 2026]}
+    - {model: mel_only,       protocol: P1, seeds: [123, 2026]}
+    - {model: lfcc_only,      protocol: P1, seeds: [123, 2026]}
+    - {model: lcnn_lfcc,      protocol: P1, seeds: [123, 2026]}
+    - {model: bscan_controlled, protocol: P2, seeds: [123, 2026]}
+    - {model: mfcc_only,      protocol: P1, seeds: [123, 2026]}
+    - {model: mel_mfcc,       protocol: P1, seeds: [123, 2026]}
+    - {model: dual_no_se,     protocol: P1, seeds: [123, 2026]}
+    - {model: dual_no_tattn,  protocol: P1, seeds: [123, 2026]}
+    - {model: dual_plain,     protocol: P1, seeds: [123, 2026]}
+  LOCAL:  # CPU scripts (.scripts/run_stats_baseline.py, .scripts/run_gmm_baseline.py)
+    - {model: stats_hgb_controlled, protocol: P1, seeds: [42]}
+    - {model: stats_hgb_controlled, protocol: P2, seeds: [42]}
+    - {model: stats_hgb_orig6s,     protocol: P1, seeds: [42]}
+    - {model: stats_hgb_orig6s,     protocol: P2, seeds: [42]}
+    - {model: lfcc_gmm_controlled,  protocol: P1, seeds: [42]}
+    - {model: lfcc_gmm_controlled,  protocol: P2, seeds: [42]}
+
+# inference-only analyses on trained checkpoints (bscan.robustness)
+analyses:
+  robustness:
+    runs: ["bscan_controlled__P1__seed42", "lfcc_only__P1__seed42", "lcnn_lfcc__P1__seed42"]
+    splits: [internal_test, external_BF-MOZ, external_MEN]
+    max_files: 600
+  probes:
+    runs: ["bscan_orig6s__P1__seed42", "bscan_controlled__P1__seed42", "lcnn_lfcc__P1__seed42"]
+    splits: [internal_test, external_BF-MOZ, external_MEN]
+    max_files: 600
+
+# paired statistical comparisons (same files, seed 42; DeLong for AUC, McNemar for decisions).
+# A pair is tested in a protocol only if both runs are registered there; Holm correction is applied within each
+# protocol x test set family (13 comparisons in P1 and 6 in P2).
+comparisons:
+  - {a: bscan_controlled, b: lfcc_only}
+  - {a: bscan_controlled, b: mel_only}
+  - {a: bscan_controlled, b: mfcc_only}
+  - {a: bscan_controlled, b: mel_mfcc}
+  - {a: bscan_controlled, b: dual_no_se}
+  - {a: bscan_controlled, b: dual_no_tattn}
+  - {a: bscan_controlled, b: dual_plain}
+  - {a: bscan_controlled, b: lcnn_lfcc}
+  - {a: bscan_controlled, b: lfcc_gmm_controlled}
+  - {a: bscan_controlled, b: stats_hgb_controlled}
+  - {a: bscan_controlled, b: stats_hgb_orig6s}
+  - {a: bscan_controlled, b: bscan_orig6s}
+  - {a: bscan_controlled, b: ssl_xlsr_probe}

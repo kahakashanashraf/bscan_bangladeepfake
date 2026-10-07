@@ -1,0 +1,12 @@
+split_P2,dataset_id,label,files
+external_BF-MOZ,BF-MOZ,0,2797
+external_BF-MOZ,BF-MOZ,1,2797
+external_BF-NEWS,BF-NEWS,0,1000
+external_BF-SUST,BF-SUST,0,9999
+external_BF-SUST,BF-SUST,1,9999
+internal_test,MEN,0,450
+internal_test,MEN,1,450
+train,MEN,0,1350
+train,MEN,1,1350
+validation,MEN,0,450
+validation,MEN,1,450

@@ -1,0 +1,24 @@
+{
+  "n_files_checked": 31092,
+  "exact_file_sha256": {
+    "files_in_groups": 0,
+    "groups": 0,
+    "cross_label_groups": 0,
+    "cross_dataset_groups": 0
+  },
+  "exact_pcm_sha256": {
+    "files_in_groups": 0,
+    "groups": 0,
+    "cross_label_groups": 0,
+    "cross_dataset_groups": 0
+  },
+  "near_duplicate_candidates": 10800,
+  "near_duplicate_confirmed_pairs": 0,
+  "near_confirmed_cross_label": 0,
+  "near_confirmed_cross_dataset": 0,
+  "thresholds": {
+    "fingerprint_cosine_candidate": 0.995,
+    "xcorr_confirm": 0.95,
+    "k": 6
+  }
+}

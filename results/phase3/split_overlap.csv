@@ -1,0 +1,31 @@
+protocol,split_a,split_b,shared_sha256,shared_pcm_sha256,shared_utterance_key,shared_text_group,shared_known_speakers,confirmed_near_duplicate_pairs
+split_P1,external_BF-MOZ,external_BF-NEWS,0,0,0,0,[],0
+split_P1,external_BF-MOZ,external_MEN,0,0,0,0,[],0
+split_P1,external_BF-MOZ,internal_test,0,0,0,0,['BF-VITS-voice'],0
+split_P1,external_BF-MOZ,train,0,0,0,1,['BF-VITS-voice'],0
+split_P1,external_BF-MOZ,validation,0,0,0,0,['BF-VITS-voice'],0
+split_P1,external_BF-NEWS,external_MEN,0,0,0,0,[],0
+split_P1,external_BF-NEWS,internal_test,0,0,0,0,[],0
+split_P1,external_BF-NEWS,train,0,0,0,0,[],0
+split_P1,external_BF-NEWS,validation,0,0,0,0,[],0
+split_P1,external_MEN,internal_test,0,0,0,0,[],0
+split_P1,external_MEN,train,0,0,0,0,[],0
+split_P1,external_MEN,validation,0,0,0,0,[],0
+split_P1,internal_test,train,0,0,0,0,"['BF-SUST-speaker', 'BF-VITS-voice']",0
+split_P1,internal_test,validation,0,0,0,0,"['BF-SUST-speaker', 'BF-VITS-voice']",0
+split_P1,train,validation,0,0,0,0,"['BF-SUST-speaker', 'BF-VITS-voice']",0
+split_P2,external_BF-MOZ,external_BF-NEWS,0,0,0,0,[],0
+split_P2,external_BF-MOZ,external_BF-SUST,0,0,0,1,['BF-VITS-voice'],0
+split_P2,external_BF-MOZ,internal_test,0,0,0,0,[],0
+split_P2,external_BF-MOZ,train,0,0,0,0,[],0
+split_P2,external_BF-MOZ,validation,0,0,0,0,[],0
+split_P2,external_BF-NEWS,external_BF-SUST,0,0,0,0,[],0
+split_P2,external_BF-NEWS,internal_test,0,0,0,0,[],0
+split_P2,external_BF-NEWS,train,0,0,0,0,[],0
+split_P2,external_BF-NEWS,validation,0,0,0,0,[],0
+split_P2,external_BF-SUST,internal_test,0,0,0,0,[],0
+split_P2,external_BF-SUST,train,0,0,0,0,[],0
+split_P2,external_BF-SUST,validation,0,0,0,0,[],0
+split_P2,internal_test,train,0,0,0,0,[],0
+split_P2,internal_test,validation,0,0,0,0,[],0
+split_P2,train,validation,0,0,0,0,[],0

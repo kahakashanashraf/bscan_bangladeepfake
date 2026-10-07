@@ -1,0 +1,8 @@
+dataset_id,label_name,files,hours
+BF-MOZ,bonafide,2797,4.094
+BF-MOZ,spoof,2797,4.976
+BF-NEWS,bonafide,1000,1.272
+BF-SUST,bonafide,9999,15.619
+BF-SUST,spoof,9999,18.454
+MEN,bonafide,2250,2.044
+MEN,spoof,2250,2.212

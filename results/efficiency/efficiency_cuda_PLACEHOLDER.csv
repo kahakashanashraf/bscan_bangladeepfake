@@ -1,0 +1,6 @@
+config,device,b1_mean_ms,PLACEHOLDER
+bscan_controlled,cuda,,True
+mel_only,cuda,,True
+lfcc_only,cuda,,True
+dual_plain,cuda,,True
+lcnn_lfcc,cuda,,True

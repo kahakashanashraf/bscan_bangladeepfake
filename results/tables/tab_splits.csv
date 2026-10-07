@@ -1,0 +1,13 @@
+protocol,split,corpora,bonafide,spoof,role
+P1,train,BF-SUST,7001,7001,training
+P1,validation,BF-SUST,1499,1499,model/threshold selection
+P1,internal_test,BF-SUST,1499,1499,test
+P1,external_BF-MOZ,BF-MOZ,2797,2797,test
+P1,external_MEN,MEN,2250,2250,test
+P1,external_BF-NEWS,BF-NEWS,1000,0,diagnostic only (no metrics)
+P2,train,MEN,1350,1350,training
+P2,validation,MEN,450,450,model/threshold selection
+P2,internal_test,MEN,450,450,test
+P2,external_BF-SUST,BF-SUST,9999,9999,test
+P2,external_BF-MOZ,BF-MOZ,2797,2797,test
+P2,external_BF-NEWS,BF-NEWS,1000,0,diagnostic only (no metrics)

@@ -1,0 +1,16 @@
+model,protocol,split,auc_mean,auc_sd,eer_mean,eer_sd,n_seeds,status,row
+bscan_orig6s,P1,internal_test,0.9999132176621194,,0.0026684456304202,,1,real,
+bscan_orig6s,P1,external_BF-MOZ,1.0,,0.0,,1,real,
+bscan_orig6s,P1,external_MEN,0.6071345185185184,,0.4408888888888889,,1,real,
+bscan_controlled,P1,internal_test,0.9999334668742916,4.3775169071019114e-05,0.0040026684456304,0.0029078712098336,3,real,
+bscan_controlled,P1,external_BF-MOZ,0.9943501658547876,0.0050306660352763,0.0296746514122273,0.0216768057078643,3,real,
+bscan_controlled,P1,external_MEN,0.6029911769547326,0.0705970819707266,0.4378518518518517,0.0695155487832308,3,real,
+bscan_controlled,P1,internal_test,0.9998842902161592,,0.00733822548365577,,1,real,seed 42
+bscan_controlled,P1,external_BF-MOZ,0.989111948817934,,0.05470146585627457,,1,real,seed 42
+bscan_controlled,P1,external_MEN,0.5390403950617284,,0.5091111111111111,,1,real,seed 42
+stats_hgb_orig6s,P1,internal_test,0.999605696659681,,0.010006671114076,,1,real,
+stats_hgb_orig6s,P1,external_BF-MOZ,0.998679442157304,,0.0121558813013943,,1,real,
+stats_hgb_orig6s,P1,external_MEN,0.9475361975308642,,0.1031111111111111,,1,real,
+stats_hgb_controlled,P1,internal_test,0.9281802722829228,,0.152768512341561,,1,real,
+stats_hgb_controlled,P1,external_BF-MOZ,0.953573782830038,,0.1001072577761887,,1,real,
+stats_hgb_controlled,P1,external_MEN,0.4435342222222222,,0.5457777777777778,,1,real,

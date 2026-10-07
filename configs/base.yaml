@@ -1,0 +1,41 @@
+# Shared defaults for every experiment (values mirror the original run where it is known:
+# AdamW 1e-4 / 1e-4, batch 16, 15 epochs, patience 5, plateau 0.5/2, grad-clip 1.0, AMP).
+# Changes from the original notebook (code/banglafkpart.ipynb):
+#   - checkpoint selection, LR scheduling and early stopping use validation LOSS
+#     (the original used 0.7*macro-F1 + 0.3*accuracy, which saturated at 1.0)
+#   - the threshold is the validation EER point on per-recording scores (not a [0.30, 0.70] grid)
+#   - normalisation statistics are per channel (static / delta / delta-delta) and seeded
+#   - seeds are applied to Python, NumPy and PyTorch; deterministic kernels requested
+out_dir: results/runs
+data:
+  protocol: P1
+  metadata_csv: metadata/unified_metadata.csv
+  audio_root: data
+  cache_dir: data/cache
+  scheme: controlled
+  window_sec: 6.0
+  overlap: 0.10
+  num_workers: 2
+model:
+  name: bscan
+  branches: [mel, lfcc]
+  hidden_dim: 64
+  use_se: true
+  use_temporal_attn: true
+  dropout: 0.3
+train:
+  seed: 42
+  batch_size: 16
+  lr: 0.0001
+  weight_decay: 0.0001
+  epochs: 15
+  patience: 5
+  plateau_factor: 0.5
+  plateau_patience: 2
+  grad_clip: 1.0
+  amp: true
+  deterministic: true
+eval:
+  threshold_rule: eer
+  aggregate: mean_logit
+  n_boot: 2000

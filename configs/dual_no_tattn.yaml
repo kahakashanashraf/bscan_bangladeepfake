@@ -1,0 +1,4 @@
+base: base.yaml
+name: dual_no_tattn
+model:
+  use_temporal_attn: false

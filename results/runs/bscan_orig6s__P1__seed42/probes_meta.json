@@ -1,0 +1,20 @@
+{
+  "run": "/content/drive/MyDrive/BSCAN_f6b8ae4772ce/runs/bscan_orig6s__P1__seed42",
+  "threshold_logit": 1.9541015625000107,
+  "conditions": [
+    "clean",
+    "append_silence_0.44",
+    "trim_trailing",
+    "add_dc_neg",
+    "remove_dc",
+    "dither_-60dBFS"
+  ],
+  "splits": [
+    "internal_test",
+    "external_BF-MOZ",
+    "external_MEN"
+  ],
+  "max_files": 600,
+  "device": "cuda",
+  "code_version": "f6b8ae4772ce"
+}

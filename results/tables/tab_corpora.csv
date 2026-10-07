@@ -1,0 +1,5 @@
+subset,source,bonafide,spoof,hours,sr_khz,mean_dur_s,speakers,generator,licence
+BF-SUST,BanglaFake (SUST TTS corpus),9999,9999,34.073,22.05 / 22.05,5.62 / 6.64,1 / 1,VITS,none stated
+BF-MOZ,BanglaFake (Common Voice),2797,2797,9.07,32 / 22.05,5.27 / 6.41,5 / 1,VITS,none stated
+BF-NEWS,"BanglaFake (news), flagged",1000,0,1.272,22.05 / --,4.58 / --,unknown / --,--,none stated
+MEN,Mendeley Bangla dataset (v4),2250,2250,4.256,16 / 24,3.27 / 3.54,75 / unknown,undocumented,CC BY 4.0

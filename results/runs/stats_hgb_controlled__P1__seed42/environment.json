@@ -1,0 +1,20 @@
+{
+  "python": "3.12.11",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "processor": "arm",
+  "cpu_count": 10,
+  "numpy": "2.5.2",
+  "time_utc": "2026-09-23T18:41:55Z",
+  "ram_gb": 24.0,
+  "torch": "2.14.0",
+  "librosa": "1.0.0",
+  "scipy": "1.18.1",
+  "sklearn": "1.9.0",
+  "soundfile": "0.14.0",
+  "pandas": "3.0.5",
+  "cuda_available": false,
+  "cuda_version": null,
+  "cudnn_version": null,
+  "gpu": null,
+  "mps_available": true
+}

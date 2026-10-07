@@ -1,0 +1,4 @@
+base: base.yaml
+name: lfcc_only
+model:
+  branches: [lfcc]

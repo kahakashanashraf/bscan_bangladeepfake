@@ -1,0 +1,19 @@
+{
+  "splits_P1": {
+    "train": 14002,
+    "external_BF-MOZ": 5594,
+    "external_MEN": 4500,
+    "validation": 2998,
+    "internal_test": 2998,
+    "external_BF-NEWS": 1000
+  },
+  "splits_P2": {
+    "external_BF-SUST": 19998,
+    "external_BF-MOZ": 5594,
+    "train": 2700,
+    "external_BF-NEWS": 1000,
+    "internal_test": 900,
+    "validation": 900
+  },
+  "seed": 42
+}

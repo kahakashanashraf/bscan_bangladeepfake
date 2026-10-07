@@ -1,0 +1,4 @@
+dataset_id,auc_id_number,separability,n
+BF-MOZ,0.5,0.5,5594
+BF-SUST,0.5,0.5,19998
+MEN,0.5,0.5,4500

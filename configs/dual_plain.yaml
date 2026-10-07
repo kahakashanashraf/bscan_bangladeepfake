@@ -1,0 +1,5 @@
+base: base.yaml
+name: dual_plain
+model:
+  use_se: false
+  use_temporal_attn: false

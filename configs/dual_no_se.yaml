@@ -1,0 +1,4 @@
+base: base.yaml
+name: dual_no_se
+model:
+  use_se: false

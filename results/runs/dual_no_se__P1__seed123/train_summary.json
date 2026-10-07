@@ -1,0 +1,10 @@
+{
+  "best_epoch": 9,
+  "best_val_loss": 0.021568119525909424,
+  "epochs_run": 14,
+  "params": 161283,
+  "train_windows": 20763,
+  "val_windows": 4427,
+  "feature_cache_sec": 0.3598296739983198,
+  "train_sec": 383.20768609699735
+}

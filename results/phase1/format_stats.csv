@@ -1,0 +1,8 @@
+dataset_id,label_name,sample_rate,channels,container,codec,files
+BF-MOZ,bonafide,32000,1,WAV,PCM_16,2797
+BF-MOZ,spoof,22050,1,WAV,PCM_16,2797
+BF-NEWS,bonafide,22050,1,WAV,PCM_16,1000
+BF-SUST,bonafide,22050,1,WAV,PCM_16,9999
+BF-SUST,spoof,22050,1,WAV,PCM_16,9999
+MEN,bonafide,16000,1,WAV,PCM_16,2250
+MEN,spoof,24000,1,WAV,PCM_16,2250

@@ -1,0 +1,4 @@
+base: base.yaml
+name: bscan_orig6s
+data:
+  scheme: orig6s

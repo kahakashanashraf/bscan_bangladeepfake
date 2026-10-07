@@ -1,0 +1,50 @@
+# Secrets and credentials
+token.txt
+*.token
+.env
+kaggle.json
+.kaggle/
+*.pem
+.netrc
+
+# macOS
+.DS_Store
+
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.blg
+*.bbl
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bak
+
+# Data, environments, caches (never commit audio or checkpoints)
+data/
+.venv/
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.ckpt
+results/cache/
+results/**/predictions_raw/
+.ipynb_checkpoints/
+
+# Returned Colab bundles (imported into results/ by .scripts/build_all.py --import)
+BSCAN_results_*/
+BSCAN_results_*.zip
+
+# Release build (metadata only; published on Kaggle, not in git)
+release/
+
+# Manuscript sources and local working files stay out of the code repository
+PLOS/
+*.docx
+
+# Generated: synthetic placeholders (scripts/make_placeholder_results.py) and local smoke-test outputs
+results/runs_PLACEHOLDER/
+results/smoke_*/

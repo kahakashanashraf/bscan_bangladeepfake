@@ -1,0 +1,4 @@
+base: base.yaml
+name: mfcc_only
+model:
+  branches: [mfcc]

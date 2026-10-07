@@ -1,0 +1,29 @@
+{
+  "run": "/content/drive/MyDrive/BSCAN_f6b8ae4772ce/runs/lcnn_lfcc__P1__seed42",
+  "threshold_logit": 1.3038194444444482,
+  "conditions": [
+    "clean",
+    "noise_snr20",
+    "noise_snr10",
+    "noise_snr5",
+    "mp3_64k",
+    "mp3_32k",
+    "aac_32k",
+    "telephone",
+    "clip_+6dB",
+    "speed_0.95",
+    "speed_1.05",
+    "pitch_+1st",
+    "pitch_-1st",
+    "reverb_rt0.3",
+    "reverb_rt0.6"
+  ],
+  "splits": [
+    "internal_test",
+    "external_BF-MOZ",
+    "external_MEN"
+  ],
+  "max_files": 600,
+  "device": "cuda",
+  "code_version": "f6b8ae4772ce"
+}

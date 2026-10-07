@@ -1,0 +1,14 @@
+{
+  "files_ok": 31092,
+  "files_error": 0,
+  "total_hours": 48.671,
+  "by_dataset_label": {
+    "BF-MOZ|bonafide": 2797,
+    "BF-MOZ|spoof": 2797,
+    "BF-NEWS|bonafide": 1000,
+    "BF-SUST|bonafide": 9999,
+    "BF-SUST|spoof": 9999,
+    "MEN|bonafide": 2250,
+    "MEN|spoof": 2250
+  }
+}
