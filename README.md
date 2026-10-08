@@ -8,6 +8,8 @@ Kahakashan Ashraf<sup>1</sup>, Md. Hamid Hosen<sup>2</sup>, Mahfuzulhoq Chowdhur
 
 This repository holds the code, configurations, split definitions and result files of the BSCAN study on Bengali synthetic-speech (deepfake audio) detection. The article is in preparation.
 
+**Companion dataset (Kaggle):** [Bengali Deepfake Forensics Dataset (BSCAN)](https://www.kaggle.com/datasets/kahakashanashraf/bengali-deepfake-forensics-dataset-bscan).
+
 ## What the code does
 
 - **Data audit.** It builds a per-file inventory of the two public Bengali corpora (BanglaFake and the Mendeley Bangla audio dataset), checks for exact and near-duplicate recordings, and measures recording-level cues (duration, silence, DC offset, level, sample rate) that separate the classes without any speech content.
@@ -48,7 +50,7 @@ The following are generated and not tracked in git: `results/runs_PLACEHOLDER/`,
 
 ## How to reproduce
 
-1. **GPU runs (Colab).** Open `code/BSCAN_full_pipeline.ipynb` in Google Colab ([open in Colab](https://colab.research.google.com/github/hamidhosen42/BSCAN-Dual-Branch-Spectro-Cepstral-Residual-Attention-Network-for-Bengali-Deepfake-Audio-Detection/blob/main/code/BSCAN_full_pipeline.ipynb)), select a GPU runtime and choose **Run all**. The notebook then:
+1. **GPU runs (Colab).** Open `code/BSCAN_full_pipeline.ipynb` in Google Colab ([open in Colab](https://colab.research.google.com/github/kahakashanashraf/bscan_bangladeepfake/blob/main/code/BSCAN_full_pipeline.ipynb)), select a GPU runtime and choose **Run all**. The notebook then:
    - downloads both corpora from their original hosts and verifies every file against its SHA-256;
    - runs the CUDA smoke test;
    - trains and evaluates every registered run (`configs/experiments.yaml`), then runs the robustness, probe and latency analyses.
@@ -59,7 +61,7 @@ The following are generated and not tracked in git: `results/runs_PLACEHOLDER/`,
    .venv/bin/python .scripts/build_all.py --import BSCAN_results_<version>.zip
    ```
    This imports the runs (it refuses bundles of another code version and any placeholder data), then computes the statistics and analyses. It generates the tables, result macros, figures and reports, compiles the manuscript when its source and LaTeX are present, and writes `results/QC_REPORT.md`. Use `--skip-latex` to skip the LaTeX step.
-3. **Kaggle release.** Run `.venv/bin/python .scripts/build_kaggle_release.py`. It builds `release/BSCAN_Bengali_Audio_Deepfake_Benchmark/` with metadata, checksums, splits, descriptors, audits, per-recording scores and the download/verify scripts. It contains **no audio**. Publish it as a new version of the Kaggle dataset ([hosen42/bengali-deepfake-forensics-dataset](https://www.kaggle.com/datasets/hosen42/bengali-deepfake-forensics-dataset)) by following the upload notes in the script's docstring, then cite the DOI that Kaggle issues for that version.
+3. **Kaggle release.** Run `.venv/bin/python .scripts/build_kaggle_release.py`. It builds `release/BSCAN_Bengali_Audio_Deepfake_Benchmark/` with metadata, checksums, splits, descriptors, audits, per-recording scores and the download/verify scripts. It contains **no audio**. Publish it as a new version of the Kaggle dataset ([kahakashanashraf/bengali-deepfake-forensics-dataset-bscan](https://www.kaggle.com/datasets/kahakashanashraf/bengali-deepfake-forensics-dataset-bscan)) by following the upload notes in the script's docstring, then cite the DOI that Kaggle issues for that version.
 
 The data-audit steps that come before the GPU runs need the corpora in `data/`. Their outputs are already in `results/phase1/`, `results/phase3/`, `metadata/`, `splits/` and `results/runs/` (CPU baselines). To re-run them, use this order (each script's docstring gives its arguments):
 `build_inventory.py` → `summarize_inventory.py` → `duplicate_check.py` → `leakage_check.py` → `model_visible_shortcuts.py` → `run_stats_baseline.py` → `run_gmm_baseline.py`. Run the smoke test with `python -m tests.smoke_test`.
