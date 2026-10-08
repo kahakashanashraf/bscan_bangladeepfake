@@ -48,3 +48,4 @@ PLOS/
 # Generated: synthetic placeholders (scripts/make_placeholder_results.py) and local smoke-test outputs
 results/runs_PLACEHOLDER/
 results/smoke_*/
+experiments/generalization/work/
